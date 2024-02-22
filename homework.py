@@ -72,8 +72,6 @@ def test_find_suitable_user():
 # сделать буквы заглавными (или первую букву), затем вывести значения всех аргументов этой функции:
 # >>> open_browser(browser_name="Chrome")
 # "Open Browser [Chrome]"
-
-
 def target_function(func, *arg_1):
     temp_args = func.__name__.replace('_', ' ').title()
     result_arg = ', '.join([*arg_1])
