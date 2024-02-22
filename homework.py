@@ -24,11 +24,8 @@ def test_dark_theme_by_time_and_user_choice():
     current_time = time(hour=16)
     # TODO переключите темную тему в зависимости от времени суток,
     #  но учтите что темная тема может быть включена вручную
-    is_dark_theme = None
-    max_hour = time(hour=22)
-    min_hour = time(hour=6)
-    if not dark_theme_enabled_by_user or dark_theme_enabled_by_user == None:
-        if current_time >= max_hour or current_time <= min_hour:
+    if not dark_theme_enabled_by_user or dark_theme_enabled_by_user is None:
+        if current_time >= time(hour=22) or current_time <= time(hour=6):
             is_dark_theme = True
         else:
             is_dark_theme = False
@@ -75,11 +72,15 @@ def test_find_suitable_user():
 # сделать буквы заглавными (или первую букву), затем вывести значения всех аргументов этой функции:
 # >>> open_browser(browser_name="Chrome")
 # "Open Browser [Chrome]"
+
+
 def target_function(func, *arg_1):
     temp_args = func.__name__.replace('_', ' ').title()
     result_arg = ', '.join([*arg_1])
     result_temp = f'{temp_args} [{result_arg}]'
+    print(result_temp)
     return result_temp
+
 def test_readable_function():
     open_browser(browser_name="Chrome")
     go_to_companyname_homepage(page_url="https://companyname.com")
